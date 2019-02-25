@@ -37,7 +37,7 @@
         </Style>
     </Window.Resources>
     <Window.DataContext>
-        <local:Agents />l
+        <local:Agents />
     </Window.DataContext>
     <DockPanel Name="dockPanelMain">
         <Menu DockPanel.Dock="Top" Name="mainMenu">
