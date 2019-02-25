@@ -146,7 +146,7 @@
                      Style="{StaticResource TextBoxStyle}"
                      />
 
-            <ListBox ItemsSource="{Binding }" Name="lbxAgents" Grid.Column="1" Margin="9">
+            <ListBox ItemsSource="{Binding }" Name="lbxAgents" Grid.Column="1" Margin="9" IsSynchronizedWithCurrentItem="True">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
