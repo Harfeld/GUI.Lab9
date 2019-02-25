@@ -3,18 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "obligatorisk", "obligatorisk\obligatorisk.csproj", "{51F69F63-F613-494C-90CF-ABC8C56CA182}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab9", "lab9\Lab9.csproj", "{C75F865B-F653-4B43-AEFD-DF4206FE7A7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51F69F63-F613-494C-90CF-ABC8C56CA182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51F69F63-F613-494C-90CF-ABC8C56CA182}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51F69F63-F613-494C-90CF-ABC8C56CA182}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51F69F63-F613-494C-90CF-ABC8C56CA182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C75F865B-F653-4B43-AEFD-DF4206FE7A7E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C75F865B-F653-4B43-AEFD-DF4206FE7A7E}.Debug|x86.ActiveCfg = Debug|x86
+		{C75F865B-F653-4B43-AEFD-DF4206FE7A7E}.Debug|x86.Build.0 = Debug|x86
+		{C75F865B-F653-4B43-AEFD-DF4206FE7A7E}.Release|Any CPU.ActiveCfg = Release|x86
+		{C75F865B-F653-4B43-AEFD-DF4206FE7A7E}.Release|x86.ActiveCfg = Release|x86
+		{C75F865B-F653-4B43-AEFD-DF4206FE7A7E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
