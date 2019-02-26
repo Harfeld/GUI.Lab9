@@ -99,34 +99,34 @@
         </StatusBar>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="72*"></ColumnDefinition>
+                <ColumnDefinition Width="229*"/>
+                <ColumnDefinition Width="491*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Height="28" Margin="0,8,0,0" >Id</Label>
-            <Label Height="28" Margin="0,37,0,0"  >CodeName</Label>
-            <Label Height="28" Margin="0,72,0,0"  >Speciality</Label>
-            <Label Height="28" Margin="0,107,0,0" >Assignment</Label>
-            <TextBox Margin="39.2,10,0,0" 
+            <Label Height="28" Margin="0,8,0,0" Width="21" >Id</Label>
+            <Label Height="28" Margin="0,37,0,0" Width="72"  >CodeName</Label>
+            <Label Height="28" Margin="0,72,0,0" Width="64"  >Speciality</Label>
+            <Label Height="28" Margin="0,107,0,0" Width="72" >Assignment</Label>
+            <TextBox Margin="39,10,0,0" 
                      Name="tbxId" 
                      VerticalAlignment="Top" 
                      HorizontalAlignment="Left" 
                      MinWidth="58"
                      Text="{Binding Path=CurrentAgent.ID}" 
                      Grid.Column="1"
-                     Style="{StaticResource JamesStyle}"
+                     Style="{StaticResource JamesStyle}" Height="25" Width="58"
                  />
-            <TextBox Margin="39.2,39,14,0" 
+            <TextBox Margin="39,39,14,0" 
                      Name="tbxCodeName" 
                      Text="{Binding Path=CurrentAgent.CodeName}" 
                      Grid.Column="1"
-                     Style="{StaticResource TextBoxStyle}"
+                     Style="{StaticResource TextBoxStyle}" Height="25"
                      />
-            <TextBox Margin="39.2,72,14,0" 
+            <TextBox Margin="39,72,14,0" 
                      Name="tbxSpeciality"
                      Text="{Binding Path=CurrentAgent.Speciality}" 
                      Grid.Column="1"
-                     Style="{StaticResource TextBoxStyle}"
+                     Style="{StaticResource TextBoxStyle}" Height="25"
                      />
             <TextBox Margin="39,109,14,9" 
                      Name="tbxAssignment" 
