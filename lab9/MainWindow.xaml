@@ -131,12 +131,15 @@
                      Text="{Binding Path=CodeName}" 
                      Style="{StaticResource TextBoxStyle}" Height="25"
                      />
-            <TextBox Margin="81,72,14,0" 
-                     Name="textBox3" 
-                     VerticalAlignment="Top" 
-                     Text="{Binding Path=Speciality}"
-                     Style="{StaticResource TextBoxStyle}" Height="25"
-                     />
+            <ComboBox Margin="81,72,14,0" 
+                      Name="SpecialityCollection" 
+                      VerticalAlignment="Top" 
+                      Text="{Binding Path=Speciality}">
+                <ComboBoxItem>Assassinate</ComboBoxItem>
+                <ComboBoxItem>Vacation</ComboBoxItem>
+                <ComboBoxItem>Capture Hostage</ComboBoxItem>
+                <ComboBoxItem>Escort Diplomat</ComboBoxItem>
+            </ComboBox>
             <TextBox Margin="82,109,14,10" 
                      Name="textBox4" 
                      Text="{Binding Path=Assignment}" 
@@ -146,15 +149,47 @@
                      Style="{StaticResource TextBoxStyle}"
                      />
 
-            <ListBox ItemsSource="{Binding }" Name="lbxAgents" Grid.Column="1" Margin="9" IsSynchronizedWithCurrentItem="True">
+            <ListBox ItemsSource="{Binding}" Name="lbxAgents" Grid.Column="1" Margin="9" IsSynchronizedWithCurrentItem="True">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <WrapPanel>
-                            <TextBlock Text="{Binding Path=ID}" MinWidth="100"/>
-                            <TextBlock Text="{Binding Path=CodeName}" MinWidth="100"/>
-                            <TextBlock Text="{Binding Path=Speciality}" MinWidth="100"/>
-                            <TextBlock Text="{Binding Path=Assignment}" MinWidth="100"/>
+                        <WrapPanel Name="agentPanel">
+                            <TextBlock Name="IdBlock" Text="{Binding Path=ID}" MinWidth="100"/>
+                            <TextBlock Name="CodenameBlock"  Text="{Binding Path=CodeName}" MinWidth="100"/>
+                            <TextBlock Name="SpecialityBlock"  Text="{Binding Path=Speciality}" MinWidth="100"/>
+                            <TextBlock Name="AssignmentBlock"  Text="{Binding Path=Assignment}" MinWidth="100"/>
                         </WrapPanel>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Path=ID}" Value="007">
+                                <Setter TargetName="IdBlock" Property="Foreground">
+                                    <Setter.Value>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="Blue"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="CodenameBlock" Property="Foreground">
+                                    <Setter.Value>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="Blue"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="SpecialityBlock" Property="Foreground">
+                                    <Setter.Value>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="Blue"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="AssignmentBlock" Property="Foreground">
+                                    <Setter.Value>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="Blue"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
