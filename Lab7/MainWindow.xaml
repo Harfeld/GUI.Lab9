@@ -85,6 +85,20 @@
                      VerticalAlignment="Center"
                      MinWidth="150"
                      />
+            <Label Content="Sort Order: "
+                   FontSize="14"
+                   FontWeight="Medium"
+                   VerticalAlignment="Center"
+            />
+            <ComboBox Width="100" x:Name="sortOrderCombo" SelectedIndex="0"
+                      FontSize="12" SelectedItem="{Binding SelectedSortOrder}"
+            >
+                <ComboBoxItem Tag="None">None</ComboBoxItem>
+                <ComboBoxItem Tag="ID">ID</ComboBoxItem>
+                <ComboBoxItem Tag="CodeName">CodeName</ComboBoxItem>
+                <ComboBoxItem Tag="Speciality">Speciality</ComboBoxItem>
+                <ComboBoxItem Tag="Assignment">Assignment</ComboBoxItem>
+            </ComboBox>
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Background="AliceBlue">
             <StatusBarItem Content="Agents Count:" />
@@ -120,14 +134,14 @@
                      Name="tbxCodeName" 
                      Text="{Binding Path=CurrentAgent.CodeName}" 
                      Grid.Column="1"
-                     Style="{StaticResource TextBoxStyle}" Height="25"
+                     Style="{StaticResource InputStyle}" Height="25"
                      />
-            <TextBox Margin="39,72,14,0" 
-                     Name="tbxSpeciality"
-                     Text="{Binding Path=CurrentAgent.Speciality}" 
-                     Grid.Column="1"
-                     Style="{StaticResource TextBoxStyle}" Height="25"
-                     />
+            <ComboBox Margin="39,72,14,233"
+                      SelectedItem="{Binding Path=CurrentAgent.Speciality}"
+                      ItemsSource="{Binding Path=Specialities}"
+                      Grid.Column="1"
+                      Style="{StaticResource InputStyle}" Height="27"
+            />
             <TextBox Margin="39,109,14,9" 
                      Name="tbxAssignment" 
                      Text="{Binding Path=CurrentAgent.Assignment}" 
@@ -136,7 +150,7 @@
                      Grid.Column="1" 
                      VerticalAlignment="Stretch"
                      VerticalScrollBarVisibility="Auto"
-                     Style="{StaticResource TextBoxStyle}"
+                     Style="{StaticResource InputStyle}"
                      />
             <ListBox ItemsSource="{Binding Path=Agents}" 
                      SelectedItem="{Binding Path=CurrentAgent}"

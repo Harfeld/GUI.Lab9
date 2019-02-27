@@ -8,6 +8,8 @@ using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -20,8 +22,7 @@ namespace AgentAssignment
         private ObservableCollection<Agent> agents;
         private string filename = "";
         DispatcherTimer timer = new DispatcherTimer();
-
-
+        
         public MainWindowViewModel()
         {
             agents = new ObservableCollection<Agent>
@@ -32,6 +33,15 @@ namespace AgentAssignment
                 #endif
             };
             CurrentAgent = null;
+
+            Specialities = new ObservableCollection<string>
+            {
+                "Assassination",
+                "Bombs",
+                "Martinis",
+                "Low profile",
+                "Spy"
+            };
 
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new EventHandler(Timer_Tick);
@@ -52,7 +62,6 @@ namespace AgentAssignment
         }
 
         Agent currentAgent = null;
-
         public Agent CurrentAgent
         {
             get { return currentAgent; }
@@ -74,6 +83,36 @@ namespace AgentAssignment
 
         Clock clock = new Clock();
         public Clock Clock { get => clock; set => clock = value; }
+
+        ObservableCollection<string> specialities;
+        public ObservableCollection<string> Specialities
+        {
+            get { return specialities; }
+            set
+            {
+                SetProperty(ref specialities, value);
+            }
+        }
+
+        Object _selectedSortOrder = "None";
+
+        public Object SelectedSortOrder
+        {
+            get { return _selectedSortOrder; }
+            set
+            {
+                SetProperty(ref _selectedSortOrder, value);
+                ICollectionView cv = CollectionViewSource.GetDefaultView(Agents);
+                var newSortOrder = value as ComboBoxItem;
+                var sortDesc = new SortDescription(newSortOrder.Tag.ToString(), ListSortDirection.Ascending);
+                if (cv != null)
+                {
+                    cv.SortDescriptions.Clear();
+                    if (newSortOrder.Tag.ToString() != "None")
+                        cv.SortDescriptions.Add(sortDesc);
+                }
+            }
+        }
         #endregion
 
         #region Commands
